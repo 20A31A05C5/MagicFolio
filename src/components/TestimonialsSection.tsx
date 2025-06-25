@@ -1,28 +1,24 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Chen',
-    role: 'UX Designer',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face',
-    content: 'PortBuilder transformed my career! Within a week of getting my new portfolio, I landed three interviews. The design is absolutely stunning and perfectly showcases my work.',
+    name: 'Sai Teja Reddy',
+    role: 'Final Year B.Tech Student',
+    content: 'MagicFolio transformed my career! Within a week of getting my new portfolio, I landed three interviews. The design is absolutely stunning and perfectly showcases my work.',
     rating: 5
   },
   {
-    name: 'Marcus Rodriguez',
-    role: 'Full Stack Developer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face',
+    name: 'Sravani Ponnam',
+    role: 'Recent Graduate',
     content: 'I was amazed by how quickly they delivered my portfolio. The AI really understood my background and created something that feels uniquely me. Highly recommend!',
     rating: 5
   },
   {
-    name: 'Emily Johnson',
-    role: 'MBA Graduate',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face',
-    content: 'As someone with no tech background, I needed something professional and polished. PortBuilder exceeded my expectations and helped me stand out in competitive job applications.',
+    name: 'Venkatesh Goud',
+    role: 'Final Year CSE Student',
+    content: 'As someone with no tech background, I needed something professional and polished. MagicFolio exceeded my expectations and helped me stand out in competitive job applications.',
     rating: 5
   }
 ];
@@ -34,7 +30,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of professionals who've accelerated their careers with PortBuilder
+            Join thousands of professionals who've accelerated their careers with MagicFolio
           </p>
         </div>
         
@@ -57,11 +53,6 @@ const TestimonialsSection = () => {
                 </p>
                 
                 <div className="flex items-center space-x-3">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
                   <div>
                     <div className="font-semibold">{testimonial.name}</div>
                     <div className="text-sm text-muted-foreground">{testimonial.role}</div>

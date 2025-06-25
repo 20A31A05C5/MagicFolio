@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -66,6 +65,7 @@ const PricingSection = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Choose the perfect plan for your needs. All plans include fast delivery and professional quality.
           </p>
+          <p className="text-lg font-semibold text-green-700 mt-2">Affordable pricing: starting at ₹300</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">

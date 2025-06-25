@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, Smartphone, Search, Palette, Clock, DollarSign } from 'lucide-react';
@@ -32,7 +31,7 @@ const features = [
   {
     icon: DollarSign,
     title: 'Affordable Pricing',
-    description: 'Professional portfolio websites starting at just $49 - a fraction of custom development costs.'
+    description: 'Professional portfolio websites starting at just ₹300 - a fraction of custom development costs.'
   }
 ];
 
@@ -41,7 +40,7 @@ const FeaturesSection = () => {
     <section id="features" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Why Choose PortBuilder?</h2>
+          <h2 className="text-4xl font-bold mb-4">Why Choose MagicFolio?</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             We combine cutting-edge technology with professional design to deliver outstanding results fast
           </p>

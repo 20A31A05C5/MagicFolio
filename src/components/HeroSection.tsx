@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { IndianRupee } from 'lucide-react';
 
 const HeroSection = () => {
   const scrollToForm = () => {
@@ -17,6 +17,11 @@ const HeroSection = () => {
             <span className="gradient-text">Portfolio Website</span>{' '}
             in Just 1 Hour
           </h1>
+          <div className="flex justify-center mb-8">
+            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-tech-blue to-tech-purple text-white border-2 border-transparent bg-clip-padding rounded-full px-8 py-3 shadow-2xl font-extrabold text-2xl animate-glow-pop ring-4 ring-tech-blue ring-offset-2 ring-offset-white transition-all duration-500 animate-pulse">
+              Starting at ₹300
+            </span>
+          </div>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
             Upload your resume and we'll turn it into a stunning, 

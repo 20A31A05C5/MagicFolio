@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hi! I'm interested in creating a portfolio website with PortBuilder. Can you help me?");
+    const message = encodeURIComponent("Hi! I'm interested in creating a portfolio website with MagicFolio. Can you help me?");
     const phoneNumber = "1234567890"; // Replace with actual WhatsApp number
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };

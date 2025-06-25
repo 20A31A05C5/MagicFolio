@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,10 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-tech-blue to-tech-purple rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">P</span>
-              </div>
-              <span className="text-xl font-bold gradient-text">PortBuilder</span>
+              <img src="/genie.jpg" alt="MagicFolio Genie Logo" className="w-8 h-8 rounded-lg object-cover shadow-md" />
+              <span className="text-xl font-bold gradient-text">MagicFolio</span>
             </div>
             <p className="text-muted-foreground">
               Creating professional portfolios that help you land your dream job.
@@ -57,13 +54,13 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-muted-foreground">
-            © 2024 PortBuilder. All rights reserved.
+            © 2024 MagicFolio. All rights reserved.
           </div>
           
           <div className="flex items-center space-x-4">
             <span className="text-muted-foreground">Contact us:</span>
-            <a href="mailto:support@portbuilder.com" className="text-primary hover:underline">
-              support@portbuilder.com
+            <a href="mailto:support@magicfolio.com" className="text-primary hover:underline">
+              support@magicfolio.com
             </a>
           </div>
         </div>

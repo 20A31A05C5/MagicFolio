@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -121,18 +120,15 @@ const OrderForm = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="category">Resume Category *</Label>
+                  <Label htmlFor="category">Portfolio Category *</Label>
                   <Select onValueChange={(value) => handleInputChange('category', value)} required>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select your field" />
+                      <SelectValue placeholder="Select your category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="developer">Software Developer</SelectItem>
-                      <SelectItem value="designer">UI/UX Designer</SelectItem>
-                      <SelectItem value="mba">MBA/Business</SelectItem>
-                      <SelectItem value="marketing">Marketing Professional</SelectItem>
-                      <SelectItem value="finance">Finance/Accounting</SelectItem>
-                      <SelectItem value="engineering">Engineering</SelectItem>
+                      <SelectItem value="final-year-student">Final Year Student</SelectItem>
+                      <SelectItem value="recent-graduate">Recent Graduate</SelectItem>
+                      <SelectItem value="working-professional">Working Professional</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>

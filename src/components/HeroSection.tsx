@@ -18,7 +18,7 @@ const HeroSection = () => {
             in Just 1 Hour
           </h1>
           <div className="flex justify-center mb-8">
-            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-tech-blue to-tech-purple text-white border-2 border-transparent bg-clip-padding rounded-full px-8 py-3 shadow-2xl font-extrabold text-2xl animate-glow-pop ring-4 ring-tech-blue ring-offset-2 ring-offset-white transition-all duration-500 animate-pulse">
+            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-tech-blue to-tech-purple text-white border-2 border-transparent bg-clip-padding rounded-full px-8 py-3 shadow-2xl font-extrabold text-2xl animate-[glow_4s_ease-in-out_infinite] ring-4 ring-tech-blue ring-offset-2 ring-offset-white transition-all duration-500 animate-pulse">
               Starting at ₹300
             </span>
           </div>

@@ -14,6 +14,7 @@ const OrderForm = () => {
     email: '',
     phone: '',
     category: '',
+    plan: '',
     resume: null as File | null
   });
 
@@ -39,7 +40,7 @@ const OrderForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.category || !formData.resume) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.category || !formData.plan || !formData.resume) {
       toast({
         title: "Missing information",
         description: "Please fill in all fields and upload your resume",
@@ -54,6 +55,10 @@ const OrderForm = () => {
     });
 
     console.log('Form submitted:', formData);
+  };
+
+  const getPlanPrice = () => {
+    return formData.plan === 'normal' ? '₹300' : formData.plan === 'advanced' ? '₹500' : '';
   };
 
   return (
@@ -108,7 +113,7 @@ const OrderForm = () => {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                     required
@@ -132,6 +137,24 @@ const OrderForm = () => {
                     </SelectContent>
                   </Select>
                 </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="plan">Select Plan *</Label>
+                <Select onValueChange={(value) => handleInputChange('plan', value)} required>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose your plan" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="normal">Normal - ₹300</SelectItem>
+                    <SelectItem value="advanced">Advanced - ₹500</SelectItem>
+                  </SelectContent>
+                </Select>
+                {formData.plan && (
+                  <p className="text-sm text-muted-foreground">
+                    Selected: {formData.plan === 'normal' ? 'Normal Plan' : 'Advanced Plan'} - {getPlanPrice()}
+                  </p>
+                )}
               </div>
               
               <div className="space-y-2">
@@ -163,7 +186,7 @@ const OrderForm = () => {
                 className="w-full bg-gradient-to-r from-tech-blue to-tech-purple hover:from-tech-blue/90 hover:to-tech-purple/90 text-lg py-6"
               >
                 <CreditCard className="mr-2 h-5 w-5" />
-                Submit & Pay Later
+                Submit & Pay {getPlanPrice()}
               </Button>
               
               <p className="text-xs text-muted-foreground text-center">

@@ -9,7 +9,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 gradient-bg">
+    <section className="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 dark:gradient-bg">
       <div className="container mx-auto text-center max-w-4xl">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">

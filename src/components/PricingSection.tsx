@@ -7,7 +7,7 @@ import { Check, Star } from 'lucide-react';
 const pricingTiers = [
   {
     name: 'Basic',
-    price: '$49',
+    price: '₹300',
     description: 'Perfect for students and entry-level professionals',
     features: [
       'Single-page portfolio',
@@ -20,8 +20,8 @@ const pricingTiers = [
     popular: false
   },
   {
-    name: 'Standard',
-    price: '$99',
+    name: 'Advanced',
+    price: '₹500',
     description: 'Ideal for experienced professionals',
     features: [
       'Multi-page portfolio',
@@ -36,18 +36,18 @@ const pricingTiers = [
     popular: true
   },
   {
-    name: 'Premium',
-    price: '$149',
-    description: 'For executives and senior professionals',
+    name: 'Monthly Plan',
+    price: '₹800/month',
+    description: 'For agencies and multiple portfolios',
     features: [
-      'Everything in Standard',
+      'Create up to 5 portfolios',
+      'Everything in Advanced',
       'Custom animations',
       'Advanced contact forms',
       'Testimonials section',
       'Portfolio analytics',
       'Unlimited revisions',
-      'Priority support',
-      '6 months maintenance'
+      'Priority support'
     ],
     popular: false
   }

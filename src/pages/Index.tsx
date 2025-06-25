@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -7,6 +6,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
   useEffect(() => {
@@ -41,6 +41,7 @@ const Index = () => {
       <TestimonialsSection />
       <Footer />
       <WhatsAppButton />
+      <ScrollToTop />
     </div>
   );
 };

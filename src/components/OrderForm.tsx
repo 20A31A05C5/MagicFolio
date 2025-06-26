@@ -177,12 +177,31 @@ const OrderForm = () => {
               </div>
               
               <Button 
-                type="submit" 
+                type="button"
                 size="lg"
-                className="w-full bg-gradient-to-r from-tech-blue to-tech-purple hover:from-tech-blue/90 hover:to-tech-purple/90 text-lg py-6"
+                className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6"
+                disabled={
+                  !formData.fullName ||
+                  !formData.email ||
+                  !formData.phone ||
+                  !formData.category ||
+                  !formData.plan ||
+                  !formData.resume
+                }
+                onClick={() => {
+                  let url = '';
+                  if (formData.plan === 'normal') {
+                    url = 'https://imjo.in/RfKmyv';
+                  } else if (formData.plan === 'advanced') {
+                    url = 'https://imjo.in/f9M9VK';
+                  }
+                  if (url) {
+                    window.open(url, '_blank');
+                  }
+                }}
               >
                 <CreditCard className="mr-2 h-5 w-5" />
-                Submit & Pay {getPlanPrice()}
+                Pay Now {getPlanPrice()}
               </Button>
               
               <p className="text-xs text-muted-foreground text-center">

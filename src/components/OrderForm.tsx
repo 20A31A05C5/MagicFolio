@@ -131,6 +131,7 @@ const OrderForm = () => {
                       <SelectValue placeholder="Select your category" />
                     </SelectTrigger>
                     <SelectContent>
+                      
                       <SelectItem value="final-year-student">Final Year Student</SelectItem>
                       <SelectItem value="recent-graduate">Recent Graduate</SelectItem>
                       <SelectItem value="working-professional">Working Professional</SelectItem>
@@ -147,33 +148,34 @@ const OrderForm = () => {
                     <SelectValue placeholder="Choose your plan" />
                   </SelectTrigger>
                   <SelectContent>
+                    
                     <SelectItem value="normal">Normal - ₹300</SelectItem>
                     <SelectItem value="advanced">Advanced - ₹500</SelectItem>
                   </SelectContent>
                 </Select>
                 {formData.plan && (
-                  <div className="flex items-center gap-2 mt-2">
-                    <label htmlFor="quickDelivery" className="flex items-center cursor-pointer select-none">
-                      <span className="mr-2 text-sm font-medium text-gray-700 dark:text-gray-200">Quick Delivery</span>
-                      <div className="relative">
-                        <input
-                          type="checkbox"
-                          id="quickDelivery"
-                          checked={quickDelivery}
-                          onChange={e => setQuickDelivery(e.target.checked)}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-tech-blue rounded-full peer dark:bg-gray-700 peer-checked:bg-green-500 transition-colors"></div>
-                        <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
-                      </div>
-                      <span className="ml-2 text-xs text-green-600 font-semibold">+₹100</span>
-                    </label>
-                  </div>
-                )}
-                {formData.plan && (
-                  <p className="text-sm text-muted-foreground">
-                    Selected: {formData.plan === 'normal' ? 'Normal Plan' : 'Advanced Plan'}{quickDelivery ? ' + Quick Delivery' : ''} - {getPlanPrice()}
-                  </p>
+                  <>
+                    <div className="flex items-center gap-4 mt-2">
+                      <label htmlFor="quickDelivery" className="flex items-center cursor-pointer select-none">
+                        <span className="mr-2 text-sm font-medium text-gray-700 dark:text-gray-200">Quick Delivery</span>
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            id="quickDelivery"
+                            checked={quickDelivery}
+                            onChange={e => setQuickDelivery(e.target.checked)}
+                            className="sr-only peer"
+                          />
+                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-tech-blue rounded-full peer dark:bg-gray-700 peer-checked:bg-green-500 transition-colors"></div>
+                          <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
+                        </div>
+                        <span className="ml-2 text-xs text-green-600 font-semibold">+₹100</span>
+                      </label>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Selected: {formData.plan === 'normal' ? 'Normal Plan' : 'Advanced Plan'}{quickDelivery ? ' + Quick Delivery' : ''} - {getPlanPrice()}
+                    </p>
+                  </>
                 )}
               </div>
               

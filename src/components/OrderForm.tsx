@@ -15,7 +15,8 @@ const OrderForm = () => {
     phone: '',
     category: '',
     plan: '',
-    resume: null as File | null
+    resume: null as File | null,
+    otherCategory: '',
   });
 
   const [quickDelivery, setQuickDelivery] = useState(false);
@@ -42,7 +43,7 @@ const OrderForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.category || !formData.plan || !formData.resume) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.category || !formData.plan || !formData.resume || (formData.category === 'other' && !formData.otherCategory)) {
       toast({
         title: "Missing information",
         description: "Please fill in all fields and upload your resume",
@@ -131,13 +132,24 @@ const OrderForm = () => {
                       <SelectValue placeholder="Select your category" />
                     </SelectTrigger>
                     <SelectContent>
-                      
                       <SelectItem value="final-year-student">Final Year Student</SelectItem>
                       <SelectItem value="recent-graduate">Recent Graduate</SelectItem>
                       <SelectItem value="working-professional">Working Professional</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
+                  {formData.category === 'other' && (
+                    <div className="mt-2">
+                      <Label htmlFor="otherCategory">Please specify your portfolio type *</Label>
+                      <Input
+                        id="otherCategory"
+                        placeholder="Type of portfolio you want"
+                        value={formData.otherCategory}
+                        onChange={e => handleInputChange('otherCategory', e.target.value)}
+                        required
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -213,6 +225,7 @@ const OrderForm = () => {
                   !formData.category ||
                   !formData.plan ||
                   !formData.resume
+                  || (formData.category === 'other' && !formData.otherCategory)
                 }
                 onClick={() => {
                   let url = '';

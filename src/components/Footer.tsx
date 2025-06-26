@@ -61,7 +61,7 @@ const Footer = () => {
             <span className="text-muted-foreground">Contact us:</span>
             <a
               href="mailto:magicfolioservices@gmail.com"
-              className="text-primary hover:underline"
+              className="text-primary no-underline hover:no-underline"
               onClick={e => {
                 e.preventDefault();
                 window.open('mailto:magicfolioservices@gmail.com', '_blank');

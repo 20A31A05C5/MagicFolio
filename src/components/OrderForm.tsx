@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Upload, FileText, CreditCard } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 const OrderForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ const OrderForm = () => {
     plan: '',
     resume: null as File | null
   });
+
+  const [quickDelivery, setQuickDelivery] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -57,7 +60,9 @@ const OrderForm = () => {
   };
 
   const getPlanPrice = () => {
-    return formData.plan === 'normal' ? '₹300' : formData.plan === 'advanced' ? '₹500' : '';
+    let base = formData.plan === 'normal' ? 300 : formData.plan === 'advanced' ? 500 : 0;
+    if (quickDelivery) base += 100;
+    return base ? `₹${base}` : '';
   };
 
   return (
@@ -136,7 +141,7 @@ const OrderForm = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="plan">Select Plan *</Label>
+                <Label htmlFor="plan" className="text-base font-semibold">Select Plan *</Label>
                 <Select onValueChange={(value) => handleInputChange('plan', value)} required>
                   <SelectTrigger>
                     <SelectValue placeholder="Choose your plan" />
@@ -147,8 +152,27 @@ const OrderForm = () => {
                   </SelectContent>
                 </Select>
                 {formData.plan && (
+                  <div className="flex items-center gap-2 mt-2">
+                    <label htmlFor="quickDelivery" className="flex items-center cursor-pointer select-none">
+                      <span className="mr-2 text-sm font-medium text-gray-700 dark:text-gray-200">Quick Delivery</span>
+                      <div className="relative">
+                        <input
+                          type="checkbox"
+                          id="quickDelivery"
+                          checked={quickDelivery}
+                          onChange={e => setQuickDelivery(e.target.checked)}
+                          className="sr-only peer"
+                        />
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-tech-blue rounded-full peer dark:bg-gray-700 peer-checked:bg-green-500 transition-colors"></div>
+                        <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
+                      </div>
+                      <span className="ml-2 text-xs text-green-600 font-semibold">+₹100</span>
+                    </label>
+                  </div>
+                )}
+                {formData.plan && (
                   <p className="text-sm text-muted-foreground">
-                    Selected: {formData.plan === 'normal' ? 'Normal Plan' : 'Advanced Plan'} - {getPlanPrice()}
+                    Selected: {formData.plan === 'normal' ? 'Normal Plan' : 'Advanced Plan'}{quickDelivery ? ' + Quick Delivery' : ''} - {getPlanPrice()}
                   </p>
                 )}
               </div>
@@ -191,9 +215,9 @@ const OrderForm = () => {
                 onClick={() => {
                   let url = '';
                   if (formData.plan === 'normal') {
-                    url = 'https://imjo.in/RfKmyv';
+                    url = quickDelivery ? 'https://imjo.in/your-quick-normal-link' : 'https://imjo.in/RfKmyv';
                   } else if (formData.plan === 'advanced') {
-                    url = 'https://imjo.in/f9M9VK';
+                    url = quickDelivery ? 'https://imjo.in/your-quick-advanced-link' : 'https://imjo.in/f9M9VK';
                   }
                   if (url) {
                     window.open(url, '_blank');

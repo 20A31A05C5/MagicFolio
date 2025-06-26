@@ -54,10 +54,20 @@ const OrderForm = () => {
 
     toast({
       title: "Order submitted successfully!",
-      description: "We'll contact you within 30 minutes to confirm your order and collect payment.",
+      description: "We'll contact you within 30 minutes to confirm your order.",
     });
 
     console.log('Form submitted:', formData);
+    setFormData({
+      fullName: '',
+      email: '',
+      phone: '',
+      category: '',
+      plan: '',
+      resume: null,
+      otherCategory: '',
+    });
+    setQuickDelivery(false);
   };
 
   const getPlanPrice = () => {
@@ -215,9 +225,9 @@ const OrderForm = () => {
               </div>
               
               <Button 
-                type="button"
+                type="submit"
                 size="lg"
-                className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6"
+                className="w-full bg-gradient-to-r from-tech-blue to-tech-purple hover:from-tech-blue/90 hover:to-tech-purple/90 text-lg py-6"
                 disabled={
                   !formData.fullName ||
                   !formData.email ||
@@ -227,20 +237,9 @@ const OrderForm = () => {
                   !formData.resume
                   || (formData.category === 'other' && !formData.otherCategory)
                 }
-                onClick={() => {
-                  let url = '';
-                  if (formData.plan === 'normal') {
-                    url = quickDelivery ? 'https://imjo.in/your-quick-normal-link' : 'https://imjo.in/RfKmyv';
-                  } else if (formData.plan === 'advanced') {
-                    url = quickDelivery ? 'https://imjo.in/your-quick-advanced-link' : 'https://imjo.in/f9M9VK';
-                  }
-                  if (url) {
-                    window.open(url, '_blank');
-                  }
-                }}
               >
                 <CreditCard className="mr-2 h-5 w-5" />
-                Pay Now {getPlanPrice()}
+                Submit & Pay {getPlanPrice()}
               </Button>
               
               <p className="text-xs text-muted-foreground text-center">
